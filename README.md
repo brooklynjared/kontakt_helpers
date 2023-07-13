@@ -1,2 +1,2 @@
-# kontakt_helpers
+# Kontakt Helpers
 Assortment of python scripts used in Kontakt development
