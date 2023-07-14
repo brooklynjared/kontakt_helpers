@@ -1,37 +1,33 @@
 import os
 
-articulations = [
-  'basic-short-DS',
-  'basic-short-US',
-  'basic-medium-DS',
-  'basic-medium-US',
-  'basic-long',
-  'basic-fat',
-  'rake-short',
-  'rake-long',
-  'semitone-scoop',
-  'fall',
+# path root
+root = './' # curently set to folder where the script resides
+
+
+# Create a list of main folders, (ie, for articulations, instruments, ...)
+folders = [
+  'sustain',
+  'staccato',
+  'marcato',
+  'pizzicato',
+  'crescendo',
+  'diminuendo',
 ]
 
-chords = [
-  "maj1",
-  "maj2",
-  "maj3",
-  "maj7",
-  "min1",
-  "min2",
-  "min3",
-  "min7",
-  "dom7",
-  "dom7sus4",
+# Create a list of subfolders (ie, for round robins, dynamic levels, ...)
+subfolders = [
+  "RR1",
+  "RR2",
+  "RR3",
+  "RR4",
 ]
 
-# make folder for each articulation
-for artic in articulations:
-    os.mkdir(f"./{artic}")
+# Loop over main and subfolders to make directories
+for folder in folders:
+    # maked the main folder
+    os.mkdir(f"{root}/{folder}")
 
-# make folder for each chord type
-for artic in articulations:
-    for chord in chords:
-        path = f"./{artic}/{chord}"
+    # make the subfolders within each main folder
+    for subfolder in subfolders:
+        path = f"{root}/{folder}/{subfolder}"
         os.mkdir(path)
