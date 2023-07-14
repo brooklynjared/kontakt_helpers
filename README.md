@@ -3,4 +3,4 @@ Assortment of Python and Lua scripts useful in development of Kontakt instrument
 
 More helpful tools coming soon....
 
-Get in touch via my [website](https://jaredhunter.com)
+Get in touch via my [website](https://jaredhunter.com).
