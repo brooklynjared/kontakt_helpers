@@ -1,6 +1,8 @@
+# Tests for the convert MIDI notes function
+
 import pytest
 
-from .convert_midi_notes import num_to_note
+from convert_midi_notes import num_to_note
 
 # Test ints in and out of range
 def test_convert_int():
