@@ -33,4 +33,3 @@ for file in sorted_files:
 
     os.rename(old_filename, new_filename)
 
-    # print(file.replace('/Volumes/Authentic Soundware/Soul-Guitar/_Dev/Samples/chords/basic-short-DS/maj1/dyn1/', ''))
