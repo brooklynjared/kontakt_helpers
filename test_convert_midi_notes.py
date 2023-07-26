@@ -17,7 +17,7 @@ def test_num_to_note_int():
     with pytest.raises(ValueError):
         num_to_note(-64)
 
-# Test string and float inputs
+# Test inputs types
 def test_num_to_note_type():
     with pytest.raises(TypeError):
         num_to_note('cat')
@@ -27,3 +27,20 @@ def test_num_to_note_type():
 
 
 # ----- Tests for note_to_num -----
+
+# Test inputs for validity
+def test_note_to_num():
+    assert note_to_num('C') == 0
+    assert note_to_num('Db') == 1
+    assert note_to_num('F#') == 6
+    with pytest.raises(ValueError):
+        note_to_num('C#2')
+
+
+# Test input types
+def test_note_to_num_type():
+    with pytest.raises(TypeError):
+        note_to_num(7)
+    with pytest.raises(TypeError):
+        note_to_num(['C', 'C#', 'G'])        
+

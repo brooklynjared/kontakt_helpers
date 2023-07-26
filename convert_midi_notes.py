@@ -1,4 +1,34 @@
 from math import floor
+import re
+
+# TO DO
+
+# - gather all the files
+# - from sys.argv determine the rename mode: append/replace new format to existing
+# - extract matches for note numbers from a filename
+# - extract matches for note names from a filename
+# - do the conversion
+# - construct the new filename
+# - rename the file
+
+
+filename = "sample - mf - F2 - 180 BPM"
+
+def match_nums(f: str):
+    # Search for 2 or 3 digits that aren't followed by "bpm", case-insensitive, with or without a space separator
+    m = re.search(r'\d\d\d?(?!\d?\s?BPM)', f, re.IGNORECASE)
+    if int(m.group()) < 128:
+        return int(m.group())
+    return 
+
+def match_notes(f: str):
+    m = re.search(r'[C,D,E,F,G,A,B]#?b?-?\d', f)
+    
+    # TO DO!!!
+    # Split the note portion and the octave portion and return two values instead of one
+    return m.group()
+
+
 
 
 # List of note names using sharps
@@ -25,7 +55,7 @@ def num_to_note(n: int):
             return None
 
 
-# Convert a note name ** without an octave ** to an int representing a midi note number for that note ex D# -> 3
+# Convert a note name ** without an octave ** to an int representing a midi note number for that note (ex D# -> 3)
 # The octave can be added in a separate function
 def note_to_num(s: str):
     if type(s) != str:
@@ -44,4 +74,3 @@ def note_to_num(s: str):
             return None
 
 
-print(note_to_num("Db"))
