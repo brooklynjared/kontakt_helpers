@@ -10,22 +10,21 @@ import re
 # - do the conversion and rename all files
 
 
-
 filename = "sample - mf - F2 - 180 BPM"
+
 
 def match_nums(f: str):
     # Search for 2 or 3 digits that aren't followed by "bpm", case-insensitive, with or without a space separator
-    m = re.search(r'\d\d\d?(?!\d?\s?BPM)', f, re.IGNORECASE)
+    m = re.search(r"\d\d\d?(?!\d?\s?BPM)", f, re.IGNORECASE)
     if int(m.group()) < 128:
         return int(m.group())
     else:
         return None
 
+
 def match_notes(f: str):
-    m = re.search(r'[C,D,E,F,G,A,B]#?b?-?\d', f)
+    m = re.search(r"[C,D,E,F,G,A,B]#?b?-?\d", f)
     return m.group()
-
-
 
 
 # List of note names using sharps
@@ -54,26 +53,26 @@ def num_to_note(n: int):
 
 # Convert a note name without an octave to an int representing a midi note number for that note (ex C3 -> 60)
 
+
 def note_to_num(s: str):
     # Check the if the argument is valid
     if type(s) != str:
         print("Input must be a string")
         raise TypeError
-    
-    if len(s) not in range(2,5):
+
+    if len(s) not in range(2, 5):
         print("Invalid string length.")
         raise ValueError
 
     try:
-        if m := re.match(r'([C,D,E,F,G,A,B]#?b?)(-?\d)', s):
+        if m := re.match(r"([C,D,E,F,G,A,B]#?b?)(-?\d)", s):
             note = m.group(1)
             octave = int(m.group(2))
 
-
-            if octave not in range(-2, 9): 
+            if octave not in range(-2, 9):
                 print("Invalid octave range.")
                 raise ValueError
-            
+
             if note in note_names:
                 return note_names.index(note) + ((octave + 2) * 12)
             elif note not in note_names and note in enharmonic_spellings:
@@ -81,11 +80,9 @@ def note_to_num(s: str):
             else:
                 print("this!")
 
-        
         else:
-            print('Could not find a match for this value.')
+            print("Could not find a match for this value.")
             raise ValueError
-        
 
     except:
         return None
