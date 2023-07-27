@@ -30,11 +30,11 @@ def test_num_to_note_type():
 
 # Test inputs for validity
 def test_note_to_num():
-    assert note_to_num('C') == 0
-    assert note_to_num('Db') == 1
-    assert note_to_num('F#') == 6
+    assert note_to_num('C-2') == 0
+    assert note_to_num('Db3') == 61
+    assert note_to_num('F#2') == 54
     with pytest.raises(ValueError):
-        note_to_num('C#2')
+        note_to_num('C')
 
 
 # Test input types
