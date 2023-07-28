@@ -1,8 +1,6 @@
-# Tests for the convert MIDI notes function
-
 import pytest
-
 from convert_midi_notes import num_to_note, note_to_num
+
 
 #  ----- Tests for num_to_note -----
 
